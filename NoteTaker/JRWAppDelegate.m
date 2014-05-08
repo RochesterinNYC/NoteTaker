@@ -7,6 +7,7 @@
 //
 
 #import "JRWAppDelegate.h"
+#import "JRWNoteViewController.h"
 
 @implementation JRWAppDelegate
 
@@ -14,6 +15,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    JRWNoteViewController *vc = [[JRWNoteViewController alloc]
+       initWithNibName:@"JRWNoteViewController" bundle:nil];
+    self.window.rootViewController = vc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

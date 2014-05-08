@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA01046A191C22E60006977B /* JRWNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA010468191C22E60006977B /* JRWNoteViewController.m */; };
+		CA01046B191C22E60006977B /* JRWNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA010469191C22E60006977B /* JRWNoteViewController.xib */; };
 		CA27B2AC191C176000941198 /* JRWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = CA27B2AB191C176000941198 /* JRWNote.m */; };
 		CA9347F5191C165200E9A8C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9347F4191C165200E9A8C8 /* Foundation.framework */; };
 		CA9347F7191C165200E9A8C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9347F6191C165200E9A8C8 /* CoreGraphics.framework */; };
@@ -33,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA010467191C22E60006977B /* JRWNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWNoteViewController.h; sourceTree = "<group>"; };
+		CA010468191C22E60006977B /* JRWNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWNoteViewController.m; sourceTree = "<group>"; };
+		CA010469191C22E60006977B /* JRWNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRWNoteViewController.xib; sourceTree = "<group>"; };
 		CA27B2AA191C176000941198 /* JRWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWNote.h; sourceTree = "<group>"; };
 		CA27B2AB191C176000941198 /* JRWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWNote.m; sourceTree = "<group>"; };
 		CA9347F1191C165200E9A8C8 /* NoteTaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteTaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +115,9 @@
 		CA9347FA191C165200E9A8C8 /* NoteTaker */ = {
 			isa = PBXGroup;
 			children = (
+				CA010467191C22E60006977B /* JRWNoteViewController.h */,
+				CA010468191C22E60006977B /* JRWNoteViewController.m */,
+				CA010469191C22E60006977B /* JRWNoteViewController.xib */,
 				CA934803191C165300E9A8C8 /* JRWAppDelegate.h */,
 				CA934804191C165300E9A8C8 /* JRWAppDelegate.m */,
 				CA27B2AA191C176000941198 /* JRWNote.h */,
@@ -225,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA01046B191C22E60006977B /* JRWNoteViewController.xib in Resources */,
 				CA9347FF191C165300E9A8C8 /* InfoPlist.strings in Resources */,
 				CA934807191C165300E9A8C8 /* Images.xcassets in Resources */,
 			);
@@ -247,6 +256,7 @@
 			files = (
 				CA934805191C165300E9A8C8 /* JRWAppDelegate.m in Sources */,
 				CA934801191C165300E9A8C8 /* main.m in Sources */,
+				CA01046A191C22E60006977B /* JRWNoteViewController.m in Sources */,
 				CA27B2AC191C176000941198 /* JRWNote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

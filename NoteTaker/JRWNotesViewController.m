@@ -58,9 +58,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(print_Message)];
 }
-//[APP_DELEGATE getNotes];
+
+-(void)createNewNote {
+    NSLog(@"Time to create new note!");
+}
 
 - (void)didReceiveMemoryWarning
 {

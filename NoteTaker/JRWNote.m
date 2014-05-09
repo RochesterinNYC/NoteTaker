@@ -8,6 +8,11 @@
 
 #import "JRWNote.h"
 
+#define timeCreatedKey @"timeCreated"
+#define timeUpdatedKey @"timeUpdated"
+#define titleKey @"title"
+#define contentKey @"content"
+
 @interface JRWNote ()
 
 @property (nonatomic) NSDate *timeCreated;
@@ -45,7 +50,27 @@
     self.timeUpdated = [[NSDate alloc] init];
 }
 
+//NSCoding
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.timeCreated forKey:timeCreatedKey];
+    [encoder encodeObject:self.timeUpdated forKey:timeUpdatedKey];
+    [encoder encodeObject:self.title forKey:titleKey];
+    [encoder encodeObject:self.content forKey:contentKey];
+}
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+    if(!self){
+        return nil;
+    }
+    
+    self.timeCreated = [decoder decodeObjectForKey:@"timeCreated"];
+    self.timeUpdated = [decoder decodeObjectForKey:@"timeUpdated"];
+    self.title = [decoder decodeObjectForKey:@"title"];
+    self.content = [decoder decodeObjectForKey:@"content"];
+    
+    return self;
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JRWNote : NSObject
+@interface JRWNote : NSObject <NSCoding>
 
 //Class methods
 
@@ -19,5 +19,8 @@
 //Instance methods
 - (void)saveNoteTitle:(NSString *)title
                 Content:(NSString *)content;
+
+
+
 
 @end

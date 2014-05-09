@@ -7,6 +7,7 @@
 //
 
 #import "JRWNotesViewController.h"
+#import "JRWNoteViewController.h"
 #import "JRWAppDelegate.h"
 @interface JRWNotesViewController ()
 
@@ -59,11 +60,20 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(print_Message)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewNote)];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 -(void)createNewNote {
     NSLog(@"Time to create new note!");
+    UIViewController *newNote = [[JRWNoteViewController alloc] initWithNibName:@"JRWNoteViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:newNote animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

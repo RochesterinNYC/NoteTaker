@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoteTaker/JRWNote.m"
-            timestampString = "421307733.43551"
+            timestampString = "421365312.298294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-encodeWithCoder:"
-            landmarkType = "5">
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "@implementation JRWNote"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

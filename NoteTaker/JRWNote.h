@@ -20,7 +20,6 @@
 - (void)saveNoteTitle:(NSString *)title
                 Content:(NSString *)content;
 
-
-
+- (NSComparisonResult)compare:(JRWNote *)otherObject;
 
 @end

@@ -10,6 +10,8 @@
 		CA01046A191C22E60006977B /* JRWNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA010468191C22E60006977B /* JRWNoteViewController.m */; };
 		CA01046B191C22E60006977B /* JRWNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA010469191C22E60006977B /* JRWNoteViewController.xib */; };
 		CA27B2AC191C176000941198 /* JRWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = CA27B2AB191C176000941198 /* JRWNote.m */; };
+		CA7C9EEB191D718E00C0CB0D /* JRWNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7C9EE9191D718E00C0CB0D /* JRWNotesViewController.m */; };
+		CA7C9EEC191D718E00C0CB0D /* JRWNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7C9EEA191D718E00C0CB0D /* JRWNotesViewController.xib */; };
 		CA9347F5191C165200E9A8C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9347F4191C165200E9A8C8 /* Foundation.framework */; };
 		CA9347F7191C165200E9A8C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9347F6191C165200E9A8C8 /* CoreGraphics.framework */; };
 		CA9347F9191C165200E9A8C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9347F8191C165200E9A8C8 /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 		CA010469191C22E60006977B /* JRWNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRWNoteViewController.xib; sourceTree = "<group>"; };
 		CA27B2AA191C176000941198 /* JRWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWNote.h; sourceTree = "<group>"; };
 		CA27B2AB191C176000941198 /* JRWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWNote.m; sourceTree = "<group>"; };
+		CA7C9EE8191D718E00C0CB0D /* JRWNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRWNotesViewController.h; sourceTree = "<group>"; };
+		CA7C9EE9191D718E00C0CB0D /* JRWNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRWNotesViewController.m; sourceTree = "<group>"; };
+		CA7C9EEA191D718E00C0CB0D /* JRWNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRWNotesViewController.xib; sourceTree = "<group>"; };
 		CA9347F1191C165200E9A8C8 /* NoteTaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteTaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9347F4191C165200E9A8C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CA9347F6191C165200E9A8C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +122,9 @@
 			children = (
 				CA010467191C22E60006977B /* JRWNoteViewController.h */,
 				CA010468191C22E60006977B /* JRWNoteViewController.m */,
+				CA7C9EE8191D718E00C0CB0D /* JRWNotesViewController.h */,
+				CA7C9EE9191D718E00C0CB0D /* JRWNotesViewController.m */,
+				CA7C9EEA191D718E00C0CB0D /* JRWNotesViewController.xib */,
 				CA010469191C22E60006977B /* JRWNoteViewController.xib */,
 				CA934803191C165300E9A8C8 /* JRWAppDelegate.h */,
 				CA934804191C165300E9A8C8 /* JRWAppDelegate.m */,
@@ -235,6 +243,7 @@
 			files = (
 				CA01046B191C22E60006977B /* JRWNoteViewController.xib in Resources */,
 				CA9347FF191C165300E9A8C8 /* InfoPlist.strings in Resources */,
+				CA7C9EEC191D718E00C0CB0D /* JRWNotesViewController.xib in Resources */,
 				CA934807191C165300E9A8C8 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7C9EEB191D718E00C0CB0D /* JRWNotesViewController.m in Sources */,
 				CA934805191C165300E9A8C8 /* JRWAppDelegate.m in Sources */,
 				CA934801191C165300E9A8C8 /* main.m in Sources */,
 				CA01046A191C22E60006977B /* JRWNoteViewController.m in Sources */,

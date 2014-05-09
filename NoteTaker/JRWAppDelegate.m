@@ -7,7 +7,7 @@
 //
 
 #import "JRWAppDelegate.h"
-#import "JRWNoteViewController.h"
+#import "JRWNotesViewController.h"
 
 @implementation JRWAppDelegate
 
@@ -16,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    
+    //NSCoder Notes Data Loading
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectoryPath stringByAppendingString:@"notesData"];
@@ -30,8 +30,9 @@
         }
     }
     
-    JRWNoteViewController *vc = [[JRWNoteViewController alloc]
-       initWithNibName:@"JRWNoteViewController" bundle:nil];
+    //View Controller Initialization
+    JRWNotesViewController *vc = [[JRWNotesViewController alloc]
+       initWithNibName:@"JRWNotesViewController" bundle:nil];
     self.window.rootViewController = vc;
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -67,6 +68,11 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self saveNotesData];
+}
+
+- (NSMutableArray *)getNotes{
+    self.notes = [[NSMutableArray alloc] initWithArray:[self.notes sortedArrayUsingSelector:@selector(compare:)]];
+    return self.notes;
 }
 
 - (void)saveNotesData{

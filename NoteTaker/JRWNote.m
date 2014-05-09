@@ -49,6 +49,10 @@
     self.timeUpdated = [[NSDate alloc] init];
 }
 
+- (NSComparisonResult)compare:(JRWNote *)otherObject{
+    return [self.timeUpdated compare:otherObject.timeUpdated];
+}
+
 //NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)encoder {

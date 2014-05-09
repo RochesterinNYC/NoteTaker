@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JRWNote.h"
 #define APP_DELEGATE ((JRWAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 @interface JRWAppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,4 +18,5 @@
 //Initializers
 - (void)saveNotesData;
 - (NSMutableArray *)getNotes;
+- (void)addNote:(JRWNote *)newNote;
 @end

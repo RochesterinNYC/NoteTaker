@@ -8,6 +8,7 @@
 
 #import "JRWNoteViewController.h"
 #import "JRWNote.h"
+#import "JRWAppDelegate.h"
 
 @interface JRWNoteViewController ()
 
@@ -33,6 +34,22 @@
         
     }
     return self;
+}
+
+//Note Saving
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save Note" style:UIBarButtonItemStyleBordered target:self action:@selector(saveNote)];
+}
+
+-(void)saveNote {
+    
+    JRWNote *noteToSave = [[JRWNote alloc]initWithNoteTitle: self.titleField.text Content: self.contentField.text];
+    [APP_DELEGATE addNote:noteToSave];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

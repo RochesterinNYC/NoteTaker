@@ -77,6 +77,10 @@
     return self.notes;
 }
 
+- (void)addNote: (JRWNote *)newNote{
+    [self.notes addObject: newNote];
+}
+
 - (void)saveNotesData{
     NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithCapacity: 3];
     if (self.notes != nil){

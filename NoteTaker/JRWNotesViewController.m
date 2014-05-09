@@ -65,7 +65,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    [self.myTableView reloadData];
 }
 
 -(void)createNewNote {
@@ -73,7 +73,6 @@
     UIViewController *newNote = [[JRWNoteViewController alloc] initWithNibName:@"JRWNoteViewController" bundle:nil];
     
     [self.navigationController pushViewController:newNote animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning

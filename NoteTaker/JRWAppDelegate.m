@@ -16,6 +16,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingString:@"notesData"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSDictionary *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        if([savedData objectForKey:@"notes"] != nil){
+            self.notes = [[NSMutableArray alloc] initWithArray:[savedData objectForKey:@"notes"]];
+        }
+    }
+    
     JRWNoteViewController *vc = [[JRWNoteViewController alloc]
        initWithNibName:@"JRWNoteViewController" bundle:nil];
     self.window.rootViewController = vc;
@@ -29,12 +43,14 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [self saveNotesData];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveNotesData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -50,6 +66,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveNotesData];
+}
+
+- (void)saveNotesData{
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithCapacity: 3];
+    if (self.notes != nil){
+        [dataDictionary setObject: self.notes forKey:@"notes"];
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"notesData"];
+    
+    [NSKeyedArchiver archiveRootObject:dataDictionary toFile:filePath];
 }
 
 @end

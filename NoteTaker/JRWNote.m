@@ -40,7 +40,6 @@
     return self;
 }
 
-
 //Instance Methods
 
 - (void)saveNoteTitle:(NSString *)title

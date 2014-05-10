@@ -60,6 +60,7 @@ static NSMutableArray *notes;
        initWithNibName:@"JRWNotesViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+
     self.window.rootViewController = navController;
 
     self.window.backgroundColor = [UIColor whiteColor];

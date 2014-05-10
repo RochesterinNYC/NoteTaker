@@ -70,6 +70,7 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewNote)];
+    self.navigationItem.title = @"Your Notes";
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -83,6 +84,7 @@
     
     [self.navigationController pushViewController:newNote animated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

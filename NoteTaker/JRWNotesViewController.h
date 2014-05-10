@@ -14,6 +14,4 @@
 
 @property(strong, nonatomic) IBOutlet UITableView *myTableView;
 
-- (void)refresh;
-
 @end

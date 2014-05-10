@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoteTaker/JRWNote.h"
-            timestampString = "421272013.825357"
+            timestampString = "421386186.284399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "-initWithNoteTitle:Content:"
             landmarkType = "4">
             <Locations>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoteTaker/JRWNote.m"
-            timestampString = "421375715.604256"
+            timestampString = "421386186.284399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "@implementation JRWNote"
             landmarkType = "3">
          </BreakpointContent>

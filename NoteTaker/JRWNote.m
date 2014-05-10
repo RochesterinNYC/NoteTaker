@@ -14,14 +14,9 @@
 #define contentKey @"content"
 
 @interface JRWNote ()
-
-
-
 @end
 
 @implementation JRWNote
-
-//Initializers
 
 //Designated Initializer
 - (instancetype)initWithNoteTitle:(NSString *)title
@@ -38,7 +33,6 @@
 }
 
 //Instance Methods
-
 - (void)saveNoteTitle:(NSString *)title
               Content:(NSString *)content{
     self.title = title;
@@ -46,6 +40,7 @@
     self.timeUpdated = [[NSDate alloc] init];
 }
 
+//Used to sort and present notes in descending order of last update (last update first)
 - (NSComparisonResult)compare:(JRWNote *)otherObject{
     return -[self.timeUpdated compare:otherObject.timeUpdated];
 }

@@ -50,12 +50,7 @@
 
 }
 
-- (NSString *)tableView: (UITableView *)tableView titleForHeaderinSection:(NSInteger)section{
-    return @"testing";
-}
-
 //Table View Delegate Functionality
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -64,8 +59,7 @@
     [self seeNoteAtIndex:selectedRow];
 }
 
-//
-
+//Instance Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -79,13 +73,14 @@
     [self.myTableView reloadData];
 }
 
+//Action for new note
 -(void)createNewNote {
     NSLog(@"Time to create new note!");
     UIViewController *newNote = [[JRWNoteViewController alloc] initWithNibName:@"JRWNoteViewController" bundle:nil];
     
     [self.navigationController pushViewController:newNote animated:YES];
 }
-
+//Action for viewing existing note
 -(void)seeNoteAtIndex:(int)index {
     JRWNote *tempNote = [[JRWAppDelegate getNotes]objectAtIndex:index];
     UIViewController *existingNote = [[JRWNoteViewController alloc] initOldNote: tempNote];
@@ -95,7 +90,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

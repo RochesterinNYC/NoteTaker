@@ -10,8 +10,6 @@
 
 @interface JRWNote : NSObject <NSCoding>
 
-//Class methods
-
 //Initializers
 - (instancetype)initWithNoteTitle:(NSString *)title
                           Content:(NSString *)content;

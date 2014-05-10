@@ -29,20 +29,22 @@
     self = [super initWithNibName:@"JRWNoteViewController" bundle:nil];
     if(self){
         self.navigationItem.title = @"Existing Note";
-        self.titleField.text = existingNote.title;
-        self.contentField.text = existingNote.content;
+        NSLog(existingNote.title);
+        NSLog(existingNote.content);
+        [self.titleField setText: existingNote.title];
+        [self.contentField setText: existingNote.content];
     }
     return self;
 }
 
-//Note Saving
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Save note button
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save Note" style:UIBarButtonItemStyleBordered target:self action:@selector(saveNote)];
 }
 
+//Save the current note
 -(void)saveNote {
     
     JRWNote *noteToSave = [[JRWNote alloc]initWithNoteTitle: self.titleField.text Content: self.contentField.text];

@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+//Class methods
 + (void)saveNotesData;
 + (NSMutableArray *)getNotes;
 + (void)addNote:(JRWNote *)newNote;

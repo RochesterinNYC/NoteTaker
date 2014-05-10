@@ -47,7 +47,7 @@
 }
 
 - (NSComparisonResult)compare:(JRWNote *)otherObject{
-    return [self.timeUpdated compare:otherObject.timeUpdated];
+    return -[self.timeUpdated compare:otherObject.timeUpdated];
 }
 
 //NSCoding

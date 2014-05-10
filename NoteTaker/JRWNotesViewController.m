@@ -30,8 +30,7 @@
 //Table View Data Source Functionality
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [[APP_DELEGATE getNotes] count];
-    return 100;
+    return [[JRWAppDelegate getNotes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

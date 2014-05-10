@@ -23,16 +23,20 @@ static NSMutableArray *notes;
 }
 
 + (void)saveNotesData{
+    NSLog(@"Saving data!");
     NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithCapacity: 3];
     if (notes != nil){
         [dataDictionary setObject: notes forKey:@"notes"];
     }
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"notesData"];
-    
+    NSString *filePath = [JRWAppDelegate getFilePath];
     [NSKeyedArchiver archiveRootObject:dataDictionary toFile:filePath];
+}
+
++ (NSString *)getFilePath{
+    NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                           inDomains:NSUserDomainMask];
+    NSString *documentDirPath = [[urls objectAtIndex:0] path];
+    return [documentDirPath stringByAppendingPathComponent:@"notesData"];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -41,10 +45,7 @@ static NSMutableArray *notes;
     // Override point for customization after application launch.
     
     //NSCoder Notes Data Loading
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingString:@"notesData"];
-    
+    NSString *filePath = [JRWAppDelegate getFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
         NSData *data = [NSData dataWithContentsOfFile:filePath];
         NSDictionary *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];

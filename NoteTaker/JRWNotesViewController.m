@@ -75,24 +75,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-/*
-    NSLog(@"Reloaded");
-    NSMutableArray *notes = [APP_DELEGATE getNotes];
-    int count = [[APP_DELEGATE getNotes] count] - 1;
-    if(count > 1){
-            NSString *title = [ notes objectAtIndex: count];
-            NSLog(title);
-    }
-    
-    
-    NSLog([NSString stringWithFormat:@"This is count %d", count]);
-*/
-    [self refresh];
-    [self.myTableView reloadData];
-}
-
-- (void)refresh{
-    [JRWAppDelegate getNotes];
     [self.myTableView reloadData];
 }
 

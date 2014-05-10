@@ -65,10 +65,10 @@
         return nil;
     }
     
-    self.timeCreated = [decoder decodeObjectForKey:@"timeCreated"];
-    self.timeUpdated = [decoder decodeObjectForKey:@"timeUpdated"];
-    self.title = [decoder decodeObjectForKey:@"title"];
-    self.content = [decoder decodeObjectForKey:@"content"];
+    self.timeCreated = [decoder decodeObjectForKey:timeCreatedKey];
+    self.timeUpdated = [decoder decodeObjectForKey:timeUpdatedKey];
+    self.title = [decoder decodeObjectForKey:titleKey];
+    self.content = [decoder decodeObjectForKey:contentKey];
     
     return self;
 }

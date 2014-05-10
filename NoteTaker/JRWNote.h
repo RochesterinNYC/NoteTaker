@@ -21,5 +21,9 @@
                 Content:(NSString *)content;
 
 - (NSComparisonResult)compare:(JRWNote *)otherObject;
+@property (nonatomic) NSDate *timeCreated;
+@property (nonatomic) NSDate *timeUpdated;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *content;
 
 @end

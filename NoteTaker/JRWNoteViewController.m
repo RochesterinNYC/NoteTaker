@@ -12,20 +12,9 @@
 
 @interface JRWNoteViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *titleField;
-@property (weak, nonatomic) IBOutlet UITextView *contentField;
-@property (nonatomic) JRWNote *note;
-
 @end
 
 @implementation JRWNoteViewController
-
-- (JRWNote *)note{
-    if (!_note){
-        _note = [[JRWNote alloc] init];
-    }
-    return _note;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,8 +36,7 @@
 -(void)saveNote {
     
     JRWNote *noteToSave = [[JRWNote alloc]initWithNoteTitle: self.titleField.text Content: self.contentField.text];
-    [APP_DELEGATE addNote:noteToSave];
-    
+    [JRWAppDelegate addNote:noteToSave];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

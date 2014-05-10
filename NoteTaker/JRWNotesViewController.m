@@ -8,6 +8,7 @@
 
 #import "JRWNotesViewController.h"
 #import "JRWNoteViewController.h"
+#import "JRWNote.h"
 #import "JRWAppDelegate.h"
 @interface JRWNotesViewController ()
 
@@ -20,7 +21,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        myTableView.dataSource = self;
+        myTableView.delegate = self;
     }
     return self;
 }
@@ -28,7 +30,8 @@
 //Table View Data Source Functionality
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[APP_DELEGATE getNotes] count];
+    //return [[APP_DELEGATE getNotes] count];
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -37,12 +40,19 @@
     
     if( cell == nil )
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    cell.textLabel.text = [[APP_DELEGATE getNotes] objectAtIndex:indexPath.row];
+    if(indexPath.row < [[JRWAppDelegate getNotes]count]){
+        JRWNote *tempNote = [[JRWAppDelegate getNotes] objectAtIndex:indexPath.row];
+        cell.textLabel.text = tempNote.title;
+    }
     return cell;
 
+}
+
+- (NSString *)tableView: (UITableView *)tableView titleForHeaderinSection:(NSInteger)section{
+    return @"testing";
 }
 
 //Table View Delegate Functionality
@@ -65,6 +75,24 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+/*
+    NSLog(@"Reloaded");
+    NSMutableArray *notes = [APP_DELEGATE getNotes];
+    int count = [[APP_DELEGATE getNotes] count] - 1;
+    if(count > 1){
+            NSString *title = [ notes objectAtIndex: count];
+            NSLog(title);
+    }
+    
+    
+    NSLog([NSString stringWithFormat:@"This is count %d", count]);
+*/
+    [self refresh];
+    [self.myTableView reloadData];
+}
+
+- (void)refresh{
+    [JRWAppDelegate getNotes];
     [self.myTableView reloadData];
 }
 

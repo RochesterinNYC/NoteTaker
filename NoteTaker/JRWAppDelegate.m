@@ -9,7 +9,31 @@
 #import "JRWAppDelegate.h"
 #import "JRWNotesViewController.h"
 
+static NSMutableArray *notes;
+
 @implementation JRWAppDelegate
+
++ (NSMutableArray *)getNotes{
+    notes = [[NSMutableArray alloc] initWithArray:[notes sortedArrayUsingSelector:@selector(compare:)]];
+    return notes;
+}
+
++ (void)addNote: (JRWNote *)newNote{
+    [notes addObject: newNote];
+}
+
++ (void)saveNotesData{
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithCapacity: 3];
+    if (notes != nil){
+        [dataDictionary setObject: notes forKey:@"notes"];
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"notesData"];
+    
+    [NSKeyedArchiver archiveRootObject:dataDictionary toFile:filePath];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,7 +50,7 @@
         NSDictionary *savedData = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
         if([savedData objectForKey:@"notes"] != nil){
-            self.notes = [[NSMutableArray alloc] initWithArray:[savedData objectForKey:@"notes"]];
+            notes = [[NSMutableArray alloc] initWithArray:[savedData objectForKey:@"notes"]];
         }
     }
     
@@ -46,14 +70,14 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    [self saveNotesData];
+    [JRWAppDelegate saveNotesData];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [self saveNotesData];
+    [JRWAppDelegate saveNotesData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -69,29 +93,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [self saveNotesData];
+    [JRWAppDelegate saveNotesData];
 }
 
-- (NSMutableArray *)getNotes{
-    self.notes = [[NSMutableArray alloc] initWithArray:[self.notes sortedArrayUsingSelector:@selector(compare:)]];
-    return self.notes;
-}
-
-- (void)addNote: (JRWNote *)newNote{
-    [self.notes addObject: newNote];
-}
-
-- (void)saveNotesData{
-    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithCapacity: 3];
-    if (self.notes != nil){
-        [dataDictionary setObject: self.notes forKey:@"notes"];
-    }
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"notesData"];
-    
-    [NSKeyedArchiver archiveRootObject:dataDictionary toFile:filePath];
-}
 
 @end

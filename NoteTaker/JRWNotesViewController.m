@@ -61,6 +61,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     int selectedRow = indexPath.row;
+    [self seeNoteAtIndex:selectedRow];
 }
 
 //
@@ -85,6 +86,11 @@
     [self.navigationController pushViewController:newNote animated:YES];
 }
 
+-(void)seeNoteAtIndex:(int)index {
+    JRWNote *tempNote = [[JRWAppDelegate getNotes]objectAtIndex:index];
+    UIViewController *existingNote = [[JRWNoteViewController alloc] initOldNote: tempNote];
+    [self.navigationController pushViewController:existingNote animated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -25,6 +25,16 @@
     return self;
 }
 
+- (id)initOldNote:(JRWNote *)existingNote {
+    self = [super initWithNibName:@"JRWNoteViewController" bundle:nil];
+    if(self){
+        self.navigationItem.title = @"Existing Note";
+        self.titleField.text = existingNote.title;
+        self.contentField.text = existingNote.content;
+    }
+    return self;
+}
+
 //Note Saving
 
 - (void)viewDidLoad

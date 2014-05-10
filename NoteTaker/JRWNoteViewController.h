@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JRWNote.h"
 
 @interface JRWNoteViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *contentField;
 
+- (id)initOldNote:(JRWNote *)existingNote;
 @end
